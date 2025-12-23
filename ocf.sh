@@ -39,14 +39,14 @@ EOL
 // Default constructor
 $capClass::$capClass(void)
 {
-    std::cout << "Default constructor called" << std::endl;
+    std::cout << "Default constructor called\n";
     return ;
 }
 
 // Copy constructor
 $capClass::$capClass(const $capClass &other)
 {
-    std::cout << "Copy constructor called" << std::endl;
+    std::cout << "Copy constructor called\n";
     (void) other;
     return ;
 }
@@ -54,7 +54,7 @@ $capClass::$capClass(const $capClass &other)
 // Assignment operator overload
 $capClass &$capClass::operator=(const $capClass &other)
 {
-    std::cout << "Assignment operator called" << std::endl;
+    std::cout << "Assignment operator called\n";
     (void) other;
     return (*this);
 }
@@ -62,7 +62,7 @@ $capClass &$capClass::operator=(const $capClass &other)
 // Destructor
 $capClass::~$capClass(void)
 {
-    std::cout << "Destructor called" << std::endl;
+    std::cout << "Destructor called\n";
     return ;
 }
 
