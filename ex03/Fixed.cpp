@@ -6,7 +6,7 @@
 /*   By: cecompte <cecompte@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/23 09:16:55 by cecompte          #+#    #+#             */
-/*   Updated: 2025/12/23 12:56:49 by cecompte         ###   ########.fr       */
+/*   Updated: 2025/12/26 12:23:46 by cecompte         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,13 +41,13 @@ void    Fixed::setRawBits(int const raw)
     this->_value = raw;
 }
 
-Fixed::Fixed(int const n) : _value (n << 8) {}
+Fixed::Fixed(int const n) : _value (n << _fraction) {}
 
-Fixed::Fixed(float const f) : _value(roundf(f * (1 << 8))) {}
+Fixed::Fixed(float const f) : _value(roundf(f * (1 << _fraction))) {}
 
 float   Fixed::toFloat( void ) const 
 {
-    return ((float)_value / (1 << 8));
+    return ((float)_value / (1 << _fraction));
 }
 
 int     Fixed::toInt( void ) const
@@ -106,14 +106,14 @@ Fixed Fixed::operator-(const Fixed &other) const
 Fixed Fixed::operator*(const Fixed &other) const
 {
     Fixed result;
-    result.setRawBits((_value * other._value) >> 8);
+    result.setRawBits((_value * other._value) >> _fraction);
     return (result);
 }
 
 Fixed Fixed::operator/(const Fixed &other) const
 {
     Fixed result;
-    result.setRawBits((_value << 8) / other._value);
+    result.setRawBits((_value << _fraction) / other._value);
     return (result);
 }
 
